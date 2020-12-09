@@ -7,9 +7,12 @@
 #define ledRed D1
 #define ledGreen D2
 
-char auth[] = "YrJ_Pe45n8o30CtpLeCH0OA9F-MMx-PF";
-char ssid[] = "viper63";
-char pass[] = "affalterbach63";
+// generate authentiction from blynk and check your email
+char auth[] = "xxxxxxx";
+
+// enter your wifi ssid and password
+char ssid[] = "xxxxxxx";
+char pass[] = "xxxxxxx";
 
 BlynkTimer timer;
 
@@ -49,7 +52,7 @@ void sendSensor(){
   if (distance < 20){
     digitalWrite(ledRed,HIGH);
     digitalWrite(ledGreen,LOW);
-    Serial.println("ISI");
+    Serial.println("AVAILABLE");
     //led for blynk
     Blynk.virtualWrite(V1, 0);
     Blynk.virtualWrite(V2, 255);
@@ -57,7 +60,7 @@ void sendSensor(){
   else{
     digitalWrite(ledRed,LOW);
     digitalWrite(ledGreen,HIGH);
-    Serial.println("KOSONG");
+    Serial.println("UNAVAILABLE");
     //led for blynk
     Blynk.virtualWrite(V1, 255);
     Blynk.virtualWrite(V2, 0);  
